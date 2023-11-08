@@ -201,6 +201,12 @@ routes = [
     name: 'errorPage',
     props: true,
     component: () => import(/* webpackChunkName: "about" */ '../pages/routerPages/ErrorPage.vue')
+  },
+  {
+    path: '/friendFinder',
+    name: 'friendFinder',
+    props: true,
+    component: () => import(/* webpackChunkName: "about" */ '../pages/routerPages/friendFinder.vue')
   }
 ]
 
