@@ -1,20 +1,20 @@
 <template>
-    <div class="w100P h100P fl" style="background:white">
-        <panel5 v-show="isVisible5" @close="close"></panel5>
+    <div class="vh100 vw100 fl" style="background:white">
+        <panel5 v-show="isVisible5" @close="close5"></panel5>
         <div class="UBheader w100P fl" style="height:50px; background:white;">
-          <div type="button" class="close" @click="close">X</div>
-        </div>
-        <div class="UBbody w100P fl flexCenter" style="height: calc(100vh - 120px); flex-direction: column;">
-            <div class="w100P fl flexCenter" style="height: 100px;">What are you wearing?<br>Help your buddy find you!</div>
-            <img class="image" src="@/assets/images/friendFinder/unib_emoji_7.png" alt="emoji7">
-            <div class="w100P fl flexCenter" style="flex-direction: column; justify-content: flex-start; height: calc(100% - 100px);">
-                <div class="flexCenter" style="height: 100px; width: 80%; background: #cecde2; margin-bottom: 40px; border-radius: 10px;">
-                    <input class="text" placeholder="Enter Description" v-model="description">
-                    <button class="button" v-on:click="getData()" @click="show5">Ready!</button>
-                </div>
+            <div type="button" class="close" @click="close">
+                <img src="@/assets/images/friendFinder/arrow-back.svg" style="width: 5%; height:auto; float: left;">
             </div>
         </div>
-        <div class="UBFooter w100P roundedCorners" style="height: 80px; background: rgb(240, 220, 194); overflow: hidden;"></div>
+        <div class="UBbody w100P fl flexCenter" style="height: calc(100vh - 120px); flex-direction: column;">
+        <div style="width: 100%; height: 40%;">
+            <img class="image" src="@/assets/images/friendFinder/unib_emoji_7.png" alt="emoji7" style="width: 40%; height:auto">
+            <div class="shadow"></div>
+        </div>
+            <textarea class="text" placeholder="What are you wearing? Help your buddy find you!" v-model="description" style="font-family: Josefin Sans"></textarea>
+            <button class="button" v-on:click="getData()" @click="show5">I'm ready!</button>
+        </div>
+        <div class="UBFooter w100P roundedCorners" style="height: 80px; background: #FFFBF6; overflow: hidden;"></div>
     </div>
 </template>
 
@@ -32,7 +32,7 @@ import panel5 from  '@/components/pageComponents/friendFinder/panel5.vue'
         },
         methods: {
             getData() {
-                console.warn("values : ", this.character, this.description)
+                console.warn("values : ", this.description)
             },
             close() {
                 this.$emit('close')
@@ -49,8 +49,26 @@ import panel5 from  '@/components/pageComponents/friendFinder/panel5.vue'
         }
     }
     </script>
-    
     <style scoped>
+    .text {
+        width: 70vw;
+        height: 20vh;
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        outline: gray solid 1px;
+        border-radius: 10px;
+        padding: 6px;
+    }
+
+    .shadow {
+        border-radius: 50%; background: 
+        black;
+         width: 45%; opacity: 0.5;
+          -webkit-filter: blur(10px); 
+          -webkit-transform: scale(1, 0.2);
+    }
+
+
     .description {
         width: 100%;
         padding: 10px;
@@ -66,15 +84,16 @@ import panel5 from  '@/components/pageComponents/friendFinder/panel5.vue'
         padding-top: 10%;
     }
     .button {
-        background-color: #0074d9;
-        color: #fff;
+        color: #2FB2E7;
         border: none;
         padding: 10px 20px;
-        border-radius: 5px;
+        border-radius: 20px;
+        border: #2FB2E7 solid 2px;
         cursor: pointer;
     }
     .button:hover {
-        background-color: #0056b3;
+        background-color: #2FB2E7;
+        color: white;
     }
     h1 {
         color: #2FB2E7
